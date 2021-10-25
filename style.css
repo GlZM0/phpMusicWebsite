@@ -1,101 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+:root {
+    --primaryColor: #f59920;
+    --mainWhite: #fff;
+    --mainBlack: #222;
+    --mainGrey: #ececec;
+    --mainSpacing: 0.1rem;
+    --mainTransition: all 0.3s linear;
+}
+
 * {
-    padding:0;
-    margin:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family:"Roboto";
+    color: var(--mainBlack);
+    background: var(--mainWhite);
+    font-family: "Poppins", sans-serif;
+    transition: background-color .5s;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    background: var(--mainWhite);
+    position: sticky;
+    top: 0;
+    height: 60px;
+    width: 100%;
     display: flex;
-    margin-top:100px;
-    justify-content: center;
-    height:100vh;
-    background:#7cb9c8;
-}
-
-h1 {
-    padding:16px;
-    font-size:22px;
-    color:black;
-    text-align: center;
-}
-
-/* Form */
-
-.main-form {
-    background:#59a5b8;
-    padding:32px 20px;
-}
-
-.form-group {
-    position: relative;
-    margin-bottom:28px;
-}
-
-.gt-input {
-    width:400px;
-    height:48px;
-    padding:0 20px;
-    font-size:20px;
-    border:0;
-}
-
-.gt-text {
-    padding:10px 20px;
-    height:100px;
-    width:100%;
-    font-family:"Roboto";
-    font-size:20px;
-}
-
-.gt-input:focus {
-    outline:none;
-}
-
-label {
-    position: absolute;
-    font-size:18px;
-    color:#aaa;
-    transition: all .4s;
-    top:24px;
-    transform:translateY(-50%);
-    margin-left:24px;
-    cursor:text;
+    align-items: center;
+    background: rgb(231, 226, 221);
     z-index: 1;
 }
 
-.gt-button {
-    width:100%;
-    height:60px;
-    font-size:20px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    border:0;
-    color:white;
-    background:#00485a;
-    transition:.4s;
+.navbar-center {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+}
+
+.cart-btn {
+    position: relative;
     cursor: pointer;
 }
 
-.gt-button:hover {
-    background:#01708b;
+.cart-items {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primaryColor);
+    padding: 0 5px;
+    border-radius: 30%;
+    color: var(--mainWhite);
 }
 
-.form-status {
-    padding:8px;
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.container {
+    transition: margin-left .5s;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* ---------- End of Navbar ---------- */
+
+/* --------------- Hero ---------------- */
+.hero {
+    min-height: calc(100vh - 60px);
+    background: url("images/5760850.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
     text-align: center;
-    color:white;
-    margin-top:8px;
-    margin-bottom:-24px;
+    background: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    padding: 2rem;
 }
-
-.move-up {
-    margin-top:-32px;
-    margin-left:0px;
-    font-size:14px;
-    background:#ff0000;
-    border-radius:8px 0;
-    color:white;
-    padding:4px 8px;
-    min-width:100px;
+.banner-title {
+    font-size: 3.4rem;
+    text-transform: uppercase;
+    letter-spacing: var(--mainSpacing);
+    margin-bottom: 3rem;
+}
+.banner-btn {
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: var(--mainSpacing);
+    font-size: 1rem;
+    background: var(--primaryColor);
+    color: var(--mainBlack);
+    border: 1px solid var(--primaryColor);
+    transition: var(--mainTransition);
+    cursor: pointer;
+}
+.banner-btn:hover {
+    background: transparent;
+    color: var(--primaryColor);
 }
