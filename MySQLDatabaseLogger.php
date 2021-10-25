@@ -13,6 +13,7 @@ class MySQLDatabaseLogger
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
+            echo "Connected succesfully";
 
         } catch (PDOException $e) {
             echo "Error in connection" . $e->getMessage();
