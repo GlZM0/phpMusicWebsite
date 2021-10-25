@@ -55,7 +55,7 @@ $s->starter();
         <!-- products -->
         <section class="products">
             <div class="section-title">
-                <h2>our products</h2>
+                <h2>Pop</h2>
             </div>
             <div class="products-center">
                 <!-- single product -->
@@ -99,7 +99,84 @@ $s->starter();
                 </arcitle>
                 <!-- end of single product -->
             </div>
+            <div class="section-title">
+                <h2>Rock</h2>
+            </div>
+            <div class="products-center">
+                <!-- single product -->
+                <arcitle class="product">
+                    <div class="img-container">
+                        <img src="images/four-w-iext73628681.jpg" alt="Four" class="product-img">
+                        <button class="bag-btn" data-id="5"><i class="fas fa-shopping-cart"></i>add to bag</button>
+                    </div>
+                    <h3>One Direction Four</h3>
+                    <h4>$16</h4>
+                </arcitle>
+                <!-- end of single product -->
+                <!-- single product -->
+                <arcitle class="product">
+                    <div class="img-container">
+                        <img src="images/One-Direction-Take-Me-Home-Standard-HQ-2012.jpg" alt="Take Me Home" class="product-img">
+                        <button class="bag-btn" data-id="6"><i class="fas fa-shopping-cart"></i>add to bag</button>
+                    </div>
+                    <h3>One Direction Take Me Home</h3>
+                    <h4>$12</h4>
+                </arcitle>
+                <!-- end of single product -->
+                <!-- single product -->
+                <arcitle class="product">
+                    <div class="img-container">
+                        <img src="images/up-all-night-b-iext36377737.jpg" alt="Up All Night" class="product-img">
+                        <button class="bag-btn" data-id="7"><i class="fas fa-shopping-cart"></i>add to bag</button>
+                    </div>
+                    <h3>One Direction Up All Night</h3>
+                    <h4>$19</h4>
+                </arcitle>
+                <!-- end of single product -->
+                <!-- single product -->
+                <arcitle class="product">
+                    <div class="img-container">
+                        <img src="images/One-direction-steal-my-girl.jpg" alt="Steal My Girl" class="product-img">
+                        <button class="bag-btn" data-id="8"><i class="fas fa-shopping-cart"></i>add to bag</button>
+                    </div>
+                    <h3>One Direction Steal My Girl</h3>
+                    <h4>$13</h4>
+                </arcitle>
+                <!-- end of single product -->
+            </div>
         </section>
+                <!-- end of products -->
+                <!-- cart -->
+        <div class="cart-overlay">
+            <div class="cart">
+                <span class="close-cart">
+                    <i class="fas fa-window-close"></i>
+                </span>
+                <h2>Your Cart</h2>
+                <div class="cart-content">
+                    <!-- cart item -->
+                        <div class="cart-item">
+                            <img src="images/four-w-iext73628681.jpg" alt="Four">
+                            <div>
+                                <h4>One Direction Four</h4>
+                                <h5>$16</h5>
+                                <span class="remove-item">remove</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-chevron-up"></i>
+                                <p class="item-amount">1</p>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    <!-- end of cart item -->
+                </div>
+                <div class="cart-footer">
+                    <h3>Your Total: $ <span class="cart-total">0</span></h3>
+                    <button class="clear-cart banner-btn">clear cart</button>
+                </div>
+            </div>
+        </div>
+                <!-- end of cart -->
     </div>
 
 
