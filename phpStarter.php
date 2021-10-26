@@ -1,6 +1,7 @@
 <?php
 include_once "MySQLDatabaseLogger.php";
 include_once "Test.php";
+include_once "DisplayProducts.php";
 
 class phpStarter
 {

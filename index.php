@@ -4,6 +4,8 @@ include_once "phpStarter.php";
 $s = new phpStarter();
 $s->starter();
 
+define('PRODUCT_IMG_URL','images/');
+
 ?>
 
 <!DOCTYPE html>
@@ -143,6 +145,15 @@ $s->starter();
                     <h4>$13</h4>
                 </arcitle>
                 <!-- end of single product -->
+                <!-- generated product -->
+                <article class="product">
+                    <?php
+                    foreach ( as $product) {
+                        $imgUrl = PRODUCT_IMG_URL.str_replace(``,`-`,strtolower($product['product_name']))
+                    }
+                    ?>
+                </article>
+                <!-- end of generated product -->
             </div>
         </section>
                 <!-- end of products -->

@@ -21,3 +21,11 @@ let cart = [];
 class Products{
 
 }
+
+class UI {
+
+}
+
+class Storage {
+
+}
