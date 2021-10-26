@@ -31,9 +31,9 @@ $s->starter();
                     <a href="#">Clients</a>
                     <a href="#">Contact</a>
                 </div>
-                <span style="font-size:30px;cursor:pointer" id="toggle" name="toggle" onclick="openNav()">&#9776;</span>
+                <span class="menu3" id="toggle" name="toggle" onclick="openNav()"><div class="burger">&#9776;</div></span>
             </span>
-            <p style="font-size: 30px">GoodMusic</p>
+            <p class="logo">GoodMusic</p>
             <div class="cart-btn">
                 <span class="nav-icon">
                 <i class='fas fa-cart-plus'></i>
