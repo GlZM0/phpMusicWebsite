@@ -1,10 +1,9 @@
 <?php
 include_once "phpStarter.php";
+include_once "DisplayProducts.php";
 
 $s = new phpStarter();
 $s->starter();
-
-define('PRODUCT_IMG_URL','images/');
 
 ?>
 
@@ -15,8 +14,8 @@ define('PRODUCT_IMG_URL','images/');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoodMusic | Home</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
@@ -58,6 +57,9 @@ define('PRODUCT_IMG_URL','images/');
         <section class="products">
             <div class="section-title">
                 <h2>Pop</h2>
+                <?php
+                echo (isset($_SESSION['cart_items']) && count($_SESSION['cart_items'])) > 0 ? count($_SESSION['cart_items']):'';
+                ?>
             </div>
             <div class="products-center">
                 <!-- single product -->
@@ -147,11 +149,9 @@ define('PRODUCT_IMG_URL','images/');
                 <!-- end of single product -->
                 <!-- generated product -->
                 <article class="product">
-                    <?php
-                    foreach ( as $product) {
-                        $imgUrl = PRODUCT_IMG_URL.str_replace(``,`-`,strtolower($product['product_name']))
-                    }
-                    ?>
+                    <div class="row">
+
+                    </div>
                 </article>
                 <!-- end of generated product -->
             </div>
