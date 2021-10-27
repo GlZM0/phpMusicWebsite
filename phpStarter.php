@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once "MySQLDatabaseLogger.php";
+include_once "MySQLConnection.php";
 include_once "Test.php";
 
 class phpStarter
@@ -10,7 +10,7 @@ class phpStarter
         //$testObj = new Test();
         //$testObj->getUsersStmt("Izaak", "Gorski");
 
-        $connector = new MySQLDatabaseLogger();
+        $connector = new MySQLConnection();
         $connector->connectToDB();
 
     }

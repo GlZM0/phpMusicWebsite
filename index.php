@@ -1,12 +1,3 @@
-<?php
-include_once "phpStarter.php";
-include_once "DisplayProducts.php";
-
-$s = new phpStarter();
-$s->starter();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,103 +48,36 @@ $s->starter();
         <section class="products">
             <div class="section-title">
                 <h2>Pop</h2>
-                <?php
-                echo (isset($_SESSION['cart_items']) && count($_SESSION['cart_items'])) > 0 ? count($_SESSION['cart_items']):'';
-                ?>
             </div>
             <div class="products-center">
-                <!-- single product -->
-                    <arcitle class="product">
-                        <div class="img-container">
-                            <img src="images/four-w-iext73628681.jpg" alt="Four" class="product-img">
-                            <button class="bag-btn" data-id="1"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                        </div>
-                        <h3>One Direction Four</h3>
-                        <h4>$16</h4>
-                    </arcitle>
-                <!-- end of single product -->
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/One-Direction-Take-Me-Home-Standard-HQ-2012.jpg" alt="Take Me Home" class="product-img">
-                        <button class="bag-btn" data-id="2"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Take Me Home</h3>
-                    <h4>$12</h4>
-                </arcitle>
-                <!-- end of single product -->
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/up-all-night-b-iext36377737.jpg" alt="Up All Night" class="product-img">
-                        <button class="bag-btn" data-id="3"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Up All Night</h3>
-                    <h4>$19</h4>
-                </arcitle>
-                <!-- end of single product -->
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/One-direction-steal-my-girl.jpg" alt="Steal My Girl" class="product-img">
-                        <button class="bag-btn" data-id="4"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Steal My Girl</h3>
-                    <h4>$13</h4>
-                </arcitle>
-                <!-- end of single product -->
-            </div>
-            <div class="section-title">
-                <h2>Rock</h2>
-            </div>
-            <div class="products-center">
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/four-w-iext73628681.jpg" alt="Four" class="product-img">
-                        <button class="bag-btn" data-id="5"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Four</h3>
-                    <h4>$16</h4>
-                </arcitle>
-                <!-- end of single product -->
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/One-Direction-Take-Me-Home-Standard-HQ-2012.jpg" alt="Take Me Home" class="product-img">
-                        <button class="bag-btn" data-id="6"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Take Me Home</h3>
-                    <h4>$12</h4>
-                </arcitle>
-                <!-- end of single product -->
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/up-all-night-b-iext36377737.jpg" alt="Up All Night" class="product-img">
-                        <button class="bag-btn" data-id="7"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Up All Night</h3>
-                    <h4>$19</h4>
-                </arcitle>
-                <!-- end of single product -->
-                <!-- single product -->
-                <arcitle class="product">
-                    <div class="img-container">
-                        <img src="images/One-direction-steal-my-girl.jpg" alt="Steal My Girl" class="product-img">
-                        <button class="bag-btn" data-id="8"><i class="fas fa-shopping-cart"></i>add to bag</button>
-                    </div>
-                    <h3>One Direction Steal My Girl</h3>
-                    <h4>$13</h4>
-                </arcitle>
-                <!-- end of single product -->
-                <!-- generated product -->
-                <article class="product">
-                    <div class="row">
+                <!-- product -->
+                    <?php
+                    session_start();
+                    const PRODUCT_IMG_URL = 'images/';
+                    require_once 'MySQLConnection.php';
+                    require_once 'Writer.php';
+                    $obj = new Writer();
 
+                    foreach ($obj->write() as $product) {
+                        $imgUrl = "images/".$product['img'];                  ?>
+                <article class="product">
+                    <div class="img-container">
+                            <a href="single-product.php?product=<?php echo $product['id'] ?>">
+                            <img src="<?php echo $imgUrl ?>" alt="<?php echo $product['product_name'] ?>" class="product-img">
+                                <button class="bag-btn" data-id="1"><i class="fas fa-shopping-cart"></i>add to bag</button>
+                            </a>
+                            <h3 class="product-name">
+                                <a href="single-product.php?product=<?php echo $product['id'] ?>">
+                                    <?php echo $product['product_name'] ?>
+                                </a>
+                            </h3>
+                            <h4>$ <?php echo $product['price'] ?></h4>
                     </div>
                 </article>
-                <!-- end of generated product -->
+                    <?php
+                    }
+                    ?>
+                <!-- end -->
             </div>
         </section>
                 <!-- end of products -->
