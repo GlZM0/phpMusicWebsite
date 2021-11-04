@@ -1,31 +1,24 @@
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
+    console.log("it works");
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-const cartBtn = document.querySelector('.cart-btn');
-const closeCartBtn = document.querySelector('.close-cart');
-const clearCartBtn = document.querySelector('.clear-cart');
-const cartDOM = document.querySelector('.cart');
-const cartOverlay = document.querySelector('.cart-overlay');
-const cartItems = document.querySelector('.cart-items');
-const cartTotal = document.querySelector('.cart-total');
-const cartContent = document.querySelector('.cart-content');
-const productsDOM = document.querySelector('.products-center');
-
-let cart = [];
-
-class Products{
-
+function openCart() {
+    let vis1 = document.getElementById("cart-overlayid");
+    let vis1cart = document.getElementById("cart-menu");
+    vis1.style.width = "100%";
+    vis1cart.style.padding = "1.5rem";
+    vis1cart.style.width = "35%";
 }
 
-class UI {
-
-}
-
-class Storage {
-
+function closeCart() {
+    let vis0 = document.getElementById("cart-overlayid");
+    let vis0cart = document.getElementById("cart-menu");
+    vis0.style.width = "0%";
+    vis0cart.style.width = "0%";
+    vis0cart.style.padding = "0";
 }

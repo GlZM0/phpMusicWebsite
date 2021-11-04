@@ -27,7 +27,7 @@
             </span>
             <p class="logo">GoodMusic</p>
             <div class="cart-btn">
-                <span class="nav-icon">
+                <span class="nav-icon" onclick="openCart()">
                 <i class='fas fa-cart-plus'></i>
                 </span>
                 <div class="cart-items">0</div>
@@ -40,13 +40,14 @@
         <div class="hero-image"></div>
         <div class="banner">
             <h1 class="banner-title">Collection</h1>
-            <button class="banner-btn" role="button"><span class="text">Shop now</span></button>
+            <a href="#" class="button-shopnow">Shop now</a>
         </div>
     </header>
         <!-- end of main -->
         <!-- products -->
         <section class="products">
-            <div class="section-title">
+
+            <div class="section-title" id="section-title">
                 <h2>Pop</h2>
             </div>
             <div class="products-center">
@@ -55,17 +56,25 @@
                     session_start();
                     const PRODUCT_IMG_URL = 'images/';
                     require_once 'MySQLConnection.php';
-                    require_once 'Writer.php';
-                    $obj = new Writer();
+                    require_once 'PopWriter.php';
+                    $obj = new PopWriter();
 
                     foreach ($obj->write() as $product) {
-                        $imgUrl = "images/".$product['img'];                  ?>
+                        $imgUrl = PRODUCT_IMG_URL.$product['img']; ?>
                 <article class="product">
                     <div class="img-container">
                             <a href="single-product.php?product=<?php echo $product['id'] ?>">
                             <img src="<?php echo $imgUrl ?>" alt="<?php echo $product['product_name'] ?>" class="product-img">
-                                <button class="bag-btn" data-id="1"><i class="fas fa-shopping-cart"></i>add to bag</button>
                             </a>
+                        <form class="form-submit">
+                            <input type="hidden" class="pid" value="<?php echo $product['id'] ?>">
+                            <input type="hidden" class="pname" value="<?php echo $product['product_name'] ?>">
+                            <input type="hidden" class="pprice" value="<?php echo $product['price'] ?>">
+                            <input type="hidden" class="pimage" value="<?php $imgUrl ?>">
+                                <button class="bag-btn" name="add_to_cart" data-id="<?php echo $product['id'] ?>"><i class="fas fa-shopping-cart"></i>add to cart</button>
+                        </form>
+                    </div>
+                        <div class="data-container">
                             <h3 class="product-name">
                                 <a href="single-product.php?product=<?php echo $product['id'] ?>">
                                     <?php echo $product['product_name'] ?>
@@ -79,22 +88,101 @@
                     ?>
                 <!-- end -->
             </div>
+            <div class="section-title">
+                <h2>Heavy Metal</h2>
+            </div>
+            <div class="products-center">
+                <!-- product -->
+                <?php
+                require_once 'MySQLConnection.php';
+                require_once 'HMetalWriter.php';
+                $obj = new HMetalWriter();
+
+                foreach ($obj->write() as $product) {
+                    $imgUrl = PRODUCT_IMG_URL.$product['img']; ?>
+                    <article class="product">
+                        <div class="img-container">
+                            <a href="single-product.php?product=<?php echo $product['id'] ?>">
+                                <img src="<?php echo $imgUrl ?>" alt="<?php echo $product['product_name'] ?>" class="product-img">
+                            </a>
+                            <form class="form-submit">
+                                <input type="hidden" class="pid" value="<?php echo $product['id'] ?>">
+                                <input type="hidden" class="pname" value="<?php echo $product['product_name'] ?>">
+                                <input type="hidden" class="pprice" value="<?php echo $product['price'] ?>">
+                                <input type="hidden" class="pimage" value="<?php $imgUrl ?>">
+                                <button class="bag-btn" name="add_to_cart" data-id="<?php echo $product['id'] ?>"><i class="fas fa-shopping-cart"></i>add to cart</button>
+                            </form>
+                        </div>
+                        <div class="data-container">
+                            <h3 class="product-name">
+                                <a href="single-product.php?product=<?php echo $product['id'] ?>">
+                                    <?php echo $product['product_name'] ?>
+                                </a>
+                            </h3>
+                            <h4>$ <?php echo $product['price'] ?></h4>
+                        </div>
+                    </article>
+                    <?php
+                }
+                ?>
+                <!-- end -->
+            </div>
+            <div class="section-title">
+                <h2>Rock and Roll</h2>
+            </div>
+            <div class="products-center">
+                <!-- product -->
+                <?php
+                require_once 'MySQLConnection.php';
+                require_once 'RnRWriter.php';
+                $obj = new RnRWriter();
+
+                foreach ($obj->write() as $product) {
+                    $imgUrl = PRODUCT_IMG_URL.$product['img']; ?>
+                    <article class="product">
+                        <div class="img-container">
+                            <a href="single-product.php?product=<?php echo $product['id'] ?>">
+                                <img src="<?php echo $imgUrl ?>" alt="<?php echo $product['product_name'] ?>" class="product-img">
+                            </a>
+                            <form class="form-submit">
+                                <input type="hidden" class="pid" value="<?php echo $product['id'] ?>">
+                                <input type="hidden" class="pname" value="<?php echo $product['product_name'] ?>">
+                                <input type="hidden" class="pprice" value="<?php echo $product['price'] ?>">
+                                <input type="hidden" class="pimage" value="<?php $imgUrl ?>">
+                                <button class="bag-btn" name="add_to_cart" data-id="<?php echo $product['id'] ?>"><i class="fas fa-shopping-cart"></i>add to cart</button>
+                            </form>
+                        </div>
+                        <div class="data-container">
+                            <h3 class="product-name">
+                                <a href="single-product.php?product=<?php echo $product['id'] ?>">
+                                    <?php echo $product['product_name'] ?>
+                                </a>
+                            </h3>
+                            <h4>$ <?php echo $product['price'] ?></h4>
+                        </div>
+                    </article>
+                    <?php
+                }
+                ?>
+                <!-- end -->
+            </div>
+
         </section>
                 <!-- end of products -->
-                <!-- cart -->
-        <div class="cart-overlay">
-            <div class="cart">
-                <span class="close-cart">
-                    <i class="fas fa-window-close"></i>
-                </span>
-                <h2>Your Cart</h2>
-                <div class="cart-content">
-                    <!-- cart item -->
+            <!-- cart -->
+            <div class="cart-overlay" id="cart-overlayid">
+                <div class="cart" id="cart-menu">
+                    <span class="close-cart" onclick="closeCart()">
+                        <i class="fas fa-window-close"></i>
+                    </span>
+                    <h2>Your cart</h2>
+                    <div class="cart-content">
+                        <!-- cart item -->
                         <div class="cart-item">
-                            <img src="images/four-w-iext73628681.jpg" alt="Four">
+                            <img src="images/four-w-iext73628681.jpg" alt="product">
                             <div>
                                 <h4>One Direction Four</h4>
-                                <h5>$16</h5>
+                                <h5>$9.00</h5>
                                 <span class="remove-item">remove</span>
                             </div>
                             <div>
@@ -103,17 +191,15 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                    <!-- end of cart item -->
-                </div>
-                <div class="cart-footer">
-                    <h3>Your Total: $ <span class="cart-total">0</span></h3>
-                    <button class="clear-cart banner-btn">clear cart</button>
+                        <!-- end of cart item -->
+                    </div>
+                    <div class="cart-footer">
+                        <h3>Your total : $ <span class="cart-total">0</span></h3>
+                        <button class="clear-cart banner-btn">clear cart</button>
+                    </div>
                 </div>
             </div>
-        </div>
-                <!-- end of cart -->
+            <!-- end of cart -->
     </div>
-
-
 </body>
 </html>
