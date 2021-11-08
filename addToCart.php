@@ -5,6 +5,6 @@ require_once "MySQLConnection.php";
 class addToCart
 {
     function adder() {
-        
+
     }
 }

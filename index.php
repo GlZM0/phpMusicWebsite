@@ -21,11 +21,11 @@
                     <a href="#">About</a>
                     <a href="#">Services</a>
                     <a href="#">Clients</a>
-                    <a href="#">Contact</a>
+                    <a href="ContactSite.php">Contact</a>
                 </div>
                 <span class="menu3" id="toggle" name="toggle" onclick="openNav()"><div class="burger">&#9776;</div></span>
             </span>
-            <p class="logo">GoodMusic</p>
+            <p class="logo-p"><a href="index.php" class="logo">GoodMusic</a></p>
             <div class="cart-btn">
                 <span class="nav-icon" onclick="openCart()">
                 <i class='fas fa-cart-plus'></i>
@@ -40,7 +40,7 @@
         <div class="hero-image"></div>
         <div class="banner">
             <h1 class="banner-title">Collection</h1>
-            <a href="#" class="button-shopnow">Shop now</a>
+            <a href="#shop-now-slide" class="button-shopnow">Shop now</a>
         </div>
     </header>
         <!-- end of main -->
@@ -48,7 +48,7 @@
         <section class="products">
 
             <div class="section-title" id="section-title">
-                <h2>Pop</h2>
+                <h2 id="shop-now-slide">Pop</h2>
             </div>
             <div class="products-center">
                 <!-- product -->
